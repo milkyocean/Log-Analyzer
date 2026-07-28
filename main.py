@@ -1,6 +1,3 @@
-"""
-Log Analyzer CLI
-"""
 import sys
 import time
 from pathlib import Path
@@ -41,8 +38,10 @@ def cli():
 @click.option("--limit", default=0, help="Limit to first N entries (0=all)")
 def analyze(log_file, json_out, html_out, cluster, templates, top_n,
             z_threshold, no_anomaly, filter_level, filter_source, limit):
+                
     """Analyze a log file and print a rich report."""
-    path = Path(log_file)
+    
+                path = Path(log_file)
     console.print(f"\n[bold blue]Analyzing:[/] {path.name} ({path.stat().st_size / 1024:.1f} KB)")
 
     with Progress(
